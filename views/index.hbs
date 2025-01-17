@@ -1,0 +1,19 @@
+<h1>Bosh sahifa</h1>
+
+<div>
+    <form method="POST" enctype="application/x-www-form-urlencoded" action="/">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<ul>
+
+    {{#each pages }}
+    <li>
+        <a href="/apis/{{ this.name }}/">/{{ this.name }}</a>
+    </li>
+    {{/each}}
+
+</ul>
