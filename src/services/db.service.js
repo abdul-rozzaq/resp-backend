@@ -7,6 +7,17 @@ export class JSONDbManager {
     constructor() {
         this.data = [];
         this.fileName = path.join(__dirname, '..', '..', 'db', 'db.json');
+
+        if (!fs.existsSync(this.fileName)) {
+            const dirPath = path.dirname(this.fileName);
+
+            if (!fs.existsSync(dirPath)) {
+                fs.mkdirSync(dirPath, { recursive: true });
+            }
+
+            this.save()
+        }
+
         this.load();
     }
 
